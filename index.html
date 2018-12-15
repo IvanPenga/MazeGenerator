@@ -4,13 +4,17 @@
 
 <head>
 	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<script src="js/point.js"></script>
+	<script src="js/board.js"></script>
+	<script src="js/maze.js"></script>
 </head>
 
 <body>
-	<canvas id="mycanvas" width="500" height="300"></canvas>
-	<script src="js/point.js"></script>
-	<script src="js/board.js"></script>
-	<script src="js/code.js"></script>
+	<button onClick="generate()" type="button">Generate maze</button>
+	Horizontal: <input id="hSize" type="number" name="horizontal" min="50" max="1000" step="10" value="500">
+	Vertical  : <input id="vSize" type="number" name="vertical" min="50" max="1000" step="10" value="300">
+	<br>
+	<canvas id="mycanvas" width="0" height="0" ></canvas>
 </body>
 
 </html>
