@@ -15,11 +15,11 @@ function generate(){
 
 	var board = new Board(hSize,vSize);
 	var stack = [];
-
+	
 	current = board.getRandomStartingPoint();
 	
 	while(board.HasUnvisited){
-		neighbour = board.getRandomNeighbour(current);
+		neighbour = board.getRandomUnvisitedNeighbour(current);
 		if (neighbour != null){
 			stack.push(current);
 			board.drawLine(current, neighbour, ctx);
@@ -31,7 +31,9 @@ function generate(){
 		}	
 	}
 	
+	
 	ctx.stroke();
+	board.setStartAndEnd(ctx);
 	
 	document.body.appendChild(canvas);
 

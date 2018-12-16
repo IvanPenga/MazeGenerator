@@ -29,6 +29,24 @@ class Board{
 		}
 	}
 	
+	getRandomNeighbour(elem){
+		var neighbours = [];
+		//top
+		if (elem - this.HorizontalCount >= 0)
+			neighbours.push(this.Points[elem - this.HorizontalCount]);
+		//bot
+		if (elem + this.HorizontalCount < this.Points.length)
+			neighbours.push(this.Points[elem + this.HorizontalCount]);
+		//left
+		if ((elem + 1) % this.HorizontalCount != 0)
+			neighbours.push(this.Points[elem + 1]);
+		//right
+		if (elem % (this.HorizontalCount) != 0)
+			neighbours.push(this.Points[elem - 1]);
+		
+		return neighbours[this.getRndInteger(0,neighbours.length - 1)];
+	}
+	
 	getUnvisitedNeighbours(elem){
 		
 		var neighbours = [];
@@ -48,8 +66,8 @@ class Board{
 		return neighbours;
 	}
 	
-	getRandomNeighbour(rectangle){
-		var elem = rectangle.Position;
+	getRandomUnvisitedNeighbour(point){
+		var elem = point.Position;
 		var neighbours = this.getUnvisitedNeighbours(elem);		
 		return neighbours[this.getRndInteger(0,neighbours.length - 1)];
 	}
@@ -74,6 +92,30 @@ class Board{
 		var point = this.Points[this.getRndInteger(0, this.Points.length - 1)];
 		point.Visited = true;
 		return point;
+	}
+	
+	setStartAndEnd(ctx){
+		var start = this.Points[0];
+		var end = this.Points[this.Points.length - 1];
+		
+		ctx.beginPath();
+		
+		ctx.fillStyle = "#0F0";
+		ctx.arc(start.X * this.PointDistance + this.EdgeDistance,
+		start.Y * this.PointDistance + this.EdgeDistance,
+		5,0, 2 * Math.PI, false);
+		
+		ctx.fill();
+		
+		ctx.beginPath();
+		
+		ctx.fillStyle = "#F00";
+		ctx.arc(end.X * this.PointDistance + this.EdgeDistance,
+		end.Y * this.PointDistance + this.EdgeDistance,
+		5,0, 2 * Math.PI, false);
+		
+		ctx.fill();
+		
 	}
 	
 	
