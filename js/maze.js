@@ -17,7 +17,7 @@ function generate(){
 	var stack = [];
 
 	current = board.getRandomStartingPoint();
-
+	
 	while(board.HasUnvisited){
 		neighbour = board.getRandomNeighbour(current);
 		if (neighbour != null){
@@ -30,6 +30,8 @@ function generate(){
 			stack.pop();
 		}	
 	}
+	
+	ctx.stroke();
 	
 	document.body.appendChild(canvas);
 

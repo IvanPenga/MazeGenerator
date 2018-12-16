@@ -61,7 +61,7 @@ class Board{
 	drawLine(fromRect, toRect, ctx){
 		ctx.moveTo(fromRect.X * this.PointDistance + this.EdgeDistance, fromRect.Y * this.PointDistance + this.EdgeDistance);
 		ctx.lineTo(toRect.X * this.PointDistance + this.EdgeDistance, toRect.Y * this.PointDistance + this.EdgeDistance);
-		ctx.stroke();
+		
 		toRect.Visited = true;
 		
 		this.VisitedCount++;
