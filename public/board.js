@@ -77,6 +77,7 @@ class Board{
 	}
 	
 	setStartAndEnd(ctx){
+		/*
 		var start = this.Points[0];
 		var end = this.Points[this.Points.length - 1];
 		
@@ -97,7 +98,7 @@ class Board{
 		5,0, 2 * Math.PI, false);
 		
 		ctx.fill();
-		
+		*/
 	}
 	
 	

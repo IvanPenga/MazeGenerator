@@ -1,13 +1,13 @@
 function generate(){
 	
-	var canvas = document.createElement("canvas");
-	var hSize = document.getElementById("hSize").value;
-	var vSize = document.getElementById("vSize").value;
+	const canvas = document.createElement("canvas");
+	const hSize = document.getElementById("hSize").value;
+	const vSize = document.getElementById("vSize").value;
 	
 	canvas.setAttribute("width",hSize);
 	canvas.setAttribute("height",vSize);
 	
-	var ctx = canvas.getContext("2d");
+	const ctx = canvas.getContext("2d");
 	
 	ctx.fillStyle = "#000";
 	ctx.fillRect(0,0,hSize,vSize);
@@ -16,8 +16,8 @@ function generate(){
 	ctx.lineWidth = 7;
 	ctx.lineCap = "round";
 
-	var board = new Board(hSize,vSize);
-	var stack = [];
+	const board = new Board(hSize,vSize);
+	const stack = [];
 	
 	current = board.getRandomStartingPoint();
 	
@@ -38,8 +38,8 @@ function generate(){
 	ctx.stroke();
 	board.setStartAndEnd(ctx);
 	
-	var img    = canvas.toDataURL("image/png");
-	var myimage = document.getElementById("myimage");
+	const img    = canvas.toDataURL("image/png");
+	const myimage = document.getElementById("labyrinth");
 	
 	myimage.setAttribute("src",img);
 
